@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head><title>file read and write</title>
+    <script type="text/javascript">
+    async function onClick() {
+        var handle = await window.showDirectoryPicker();
+        await handle.requestPermission({mode: 'readwrite'});
+        var fileHandle = await handle.getFileHandle('My Notes.txt', { create: true });
+        const writable = await fileHandle.createWritable();
+        // Write the contents of the file to the stream.
+        await writable.write("contents");
+        // Close the file and write the contents to disk.
+        await writable.close();
+    }
+
+
+    </script></head>
+    <body onload="">
+        <div>Chrome 86以后默认启用了The File System Access API</div>
+        <a href="https://web.dev/file-system-access/">原文</a>
+        <input type="button" onclick="onClick();" value="button">
+    </body>
+</html>
