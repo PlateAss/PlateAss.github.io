@@ -13,11 +13,18 @@
         await writable.close();
     }
 
-
+    async function onClick2() {
+        var textFileAsBlob = new Blob(['hello word'], {type:'text/plain'});
+        var downloadLink = document.createElement("a");
+        downloadLink.download = 'test.txt';
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.click();
+    }
     </script></head>
     <body onload="">
         <div>Chrome 86以后默认启用了The File System Access API</div>
         <a href="https://web.dev/file-system-access/">原文</a>
-        <input type="button" onclick="onClick();" value="button">
+        <input type="button" onclick="onClick()" value="button">
+        <input type="button" onclick="onClick2()" value="button1">
     </body>
 </html>
