@@ -6,9 +6,11 @@
 <title>天地图－地图API－范例－行政区划</title>
 <style type="text/css">body,html{width:100%;height:100%;margin:0;font-family:"Microsoft YaHei"}#mapDiv{width:100%;height:800px}input,b,p{margin-left:5px;font-size:14px}</style>
 <script type="text/javascript" src="http://api.tianditu.gov.cn/api?v=4.0&tk=d4b0d9c35913ec82d7ea08e7461ae11d"></script>
+<script src="echarts.min.js"></script>
+<script src="jquery-3.6.0.min.js"></script>
 <script> 
 	var map; 
-	var zoom = 12; 
+	var zoom = 18; 
 	var administrative;
 	var html = "<font style='font-weight:700'>详细信息如下：</font><br/>";
 	function onLoad() 
@@ -16,8 +18,14 @@
 		//初始化地图对象 
 	   	map=new T.Map("mapDiv"); 
 	   	//设置显示地图的中心点和级别 
-		map.centerAndZoom(new T.LngLat(116.40969,39.89945),zoom); 
-		 
+		map.centerAndZoom(new T.LngLat(121.45043,31.29062),zoom); 
+		var ctrl = new T.Control.MapType([{
+title: '卫星混合',
+icon:'http://api.tianditu.gov.cn/v4.0/image/map/maptype/satellitepoi.png',
+layer: TMAP_HYBRID_MAP
+}]);
+        //添加控件
+        map.addControl(ctrl);
 		//创建对象
 		administrative = new T.AdministrativeDivision();
 		var config = {
@@ -26,9 +34,50 @@
 			needPolygon: true,
 			needPre: true,
 			searchType: 1,
-			searchWord: "北京市"
+			searchWord: "上海市静安区"
 		};
 		administrative.search(config, searchResult);
+
+		$.getJSON("上海市.json",function(map){
+		var myChart = echarts.init(document.getElementById('mapDiv'));
+		echarts.registerMap("luoyang",map);
+		var option = {
+					series : [ {
+						map : "luoyang",
+						type : "map",
+						aspectScale: 1.0,
+						selectedMode: 'single',//选择类型,
+						hoverable:false,//鼠标经过高亮
+						roam: true,//鼠标滚轮缩放
+						itemStyle: {
+							normal: {
+								borderWidth:1,
+								borderColor:'#0000FF',//区域边框色
+								areaColor: '#9FDAB9',//区域背景色
+								label: {
+									show: true,
+									textStyle: {
+										color: '#6495ED',//文字颜色
+										fontSize:12      //文字大小
+									}
+								}
+							},
+							emphasis: {                 // 选中样式
+								borderWidth:1,
+								borderColor:'#00ffff',
+								color: '#ffffff',
+								label: {
+									show: true,
+									textStyle: {
+										color: '#ff0000'
+									}
+								}
+							}
+						}
+					} ]
+				};
+				myChart.setOption(option);
+			});
 	}
 	
 	function searchResult(result)

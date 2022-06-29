@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上海市</title>
+    <script src="echarts.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+        html,body,#main{
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script type="text/javascript">
+    $.getJSON("上海市.json",function(map){
+ var myChart = echarts.init(document.getElementById('main'));
+ echarts.registerMap("luoyang",map);
+ var option = {
+            series : [ {
+                map : "luoyang",
+                type : "map",
+                aspectScale: 1.0,
+                selectedMode: 'single',//选择类型,
+                hoverable:false,//鼠标经过高亮
+                roam: true,//鼠标滚轮缩放
+                itemStyle: {
+                    normal: {
+                        borderWidth:1,
+                        borderColor:'#0000FF',//区域边框色
+                        areaColor: '#9FDAB9',//区域背景色
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: '#6495ED',//文字颜色
+                                fontSize:12      //文字大小
+                            }
+                        }
+                    },
+                    emphasis: {                 // 选中样式
+                        borderWidth:1,
+                        borderColor:'#00ffff',
+                        color: '#ffffff',
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: '#ff0000'
+                            }
+                        }
+                    }
+                }
+            } ]
+        };
+        myChart.setOption(option);
+    });
+</script>
+</body>
+</html>
