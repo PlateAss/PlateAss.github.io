@@ -25,3 +25,10 @@
 [第五课作业](https://plateass.github.io/work5)
 
 [第六课作业](https://plateass.github.io/work6)
+
+lmdeploy加载ptb_text_only数据集的问题
+由于huggingface加载ptb_text_only数据集需要从github下载数据文件经常失败。
+可以先手工现在相关文件，然后修改huggingface上的ptb_text_only.py文件，把其中三行代码修改为本地路径。
+然后覆盖.cache/huggingface/modules/transformers_modules/datasets/ptb_text_only/8dxxxxxxxxx/ptb_text_only.py文件
+
+重新执行lmdeploy。
