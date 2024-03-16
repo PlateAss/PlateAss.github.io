@@ -107,7 +107,7 @@ RLHF流程
     - 建议数据集总条数在1000条以上，训练模型更加精准
 举例，根据新闻内容生成标题的大模型的2条训练数据：
 ![](png/t24.png)  
-response中有2个输出结果，最优的在前面
+response中有2个输出结果，最优的在前面  
     2. 强化学习数据要求([视频](https://cloud.baidu.com/partner/course-center/course.html?id=720))
 ![](png/t25.png)  
 可以看到数据中只需要prompt。
