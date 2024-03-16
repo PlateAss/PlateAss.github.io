@@ -105,13 +105,13 @@ RLHF流程
     1. 奖励模型数据要求([视频](https://cloud.baidu.com/partner/course-center/course.html?id=718))
     - 奖励模型支持单轮对话、多轮对话有排序数据
     - 建议数据集总条数在1000条以上，训练模型更加精准
-举例，根据新闻内容生成标题的大模型的2条训练数据：
-![](png/t24.png)  
-response中有2个输出结果，最优的在前面  
+    举例，根据新闻内容生成标题的大模型的2条训练数据：
+    ![](png/t24.png)  
+    response中有2个输出结果，最优的在前面  
     2. 强化学习数据要求([视频](https://cloud.baidu.com/partner/course-center/course.html?id=720))
-![](png/t25.png)  
-可以看到数据中只需要prompt。
-我理解的工作机制是：模型会使用强化学习的数据生成答案，然后与奖励模型的数据和答案比较，算出误差。通过多轮学习，逐步减小这个误差。
+    ![](png/t25.png)  
+    可以看到数据中只需要prompt。
+    我理解的工作机制是：模型会使用强化学习的数据生成答案，然后与奖励模型的数据和答案比较，算出误差。通过多轮学习，逐步减小这个误差。
 
 ## 大模型的学习资料
 1.  [面向开发者的 LLM 入门课程](https://github.com/datawhalechina/prompt-engineering-for-developers.git)
