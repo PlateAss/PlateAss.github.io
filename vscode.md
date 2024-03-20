@@ -8,4 +8,10 @@ https://www.vsixhub.com/vsix/
 
 修改下面的链接对应的位置，就可以下载了
 
+linux_amd64版本
+
 https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-toolsai/vsextensions/jupyter/2024.2.2024022001/vspackage?targetPlatform=linux-x64
+
+linux_arm64版本
+
+https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-toolsai/vsextensions/jupyter/2024.2.2024022001/vspackage?targetPlatform=linux-arm64
