@@ -5,3 +5,4 @@
 3. deepspeed
 4. Accelerate
 5. FasterTransformer->TensorRT-LLM
+6. langchain
