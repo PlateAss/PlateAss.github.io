@@ -1,6 +1,6 @@
 # gradio内网加载慢的问题
 
-版本4.29
+版本4.29、4.32测试通过
 目录位置/path to conda/anaconda3/envs/conda name/lib/python3.xx/site-packages/gradio
 
 1. 修改 themes/utils/fonts.py
