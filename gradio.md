@@ -16,11 +16,11 @@
 
 # Chromadb 禁止访问posthog
 
-代码中增加，[参考](https://github.com/zylon-ai/private-gpt/issues/34#issuecomment-1543930590)   
-例如在langchain中调用  
+需要在代码种增加参数，[参考](https://github.com/zylon-ai/private-gpt/issues/34#issuecomment-1543930590)   
+例如在langchain中调用：  
 from chromadb.config import Settings  
-db = Chroma(...,client+settings=Settings(anonymized_telemetry=False))  
-这是chromadb中  
+db = Chroma(...,client_settings=Settings(anonymized_telemetry=False))  
+这是在chromadb中：  
 db = Chroma.from_documents(texts, llama, persist_directory=persist_directory, client_settings={"anonymized_telemetry": False})  
 
 # Tensorflow不能加载TensorRT的问题
