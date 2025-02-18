@@ -70,3 +70,23 @@ npm config set registry https://registry.npmmirror.com/
 ```
 npm install -g pnpm
 ```
+
+设置镜像源
+
+```
+pnpm config set registry https://registry.npmmirror.com/
+```
+
+修改一些配置
+
+```
+vi .npmrc
+```
+
+添加以下三行
+
+```
+shamefully-hoist=true
+auto-install-peers=true
+strict-peer-dependencies=false
+```
