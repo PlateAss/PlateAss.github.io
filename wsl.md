@@ -30,20 +30,43 @@ apt list|grep python3.1
 sudo apt install python3.11
 ```
 
+设置镜像源
+
+```
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/
+```
+
 # 安装node
 
-先安装curl，然后下载nvm，然后安装node
+安装nvm
 
 ```
-sudo apt-get install curl
+git clone https://gitee.com/mirrors/nvm .nvm
+cd .nvm
+bash install.sh
+source ~/.bashrc
 ```
 
+修改源
+
 ```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node
 ```
 
 安装最新的稳定版本
 
 ```
 nvm install --lts
+```
+
+设置镜像源
+
+```
+npm config set registry https://registry.npmmirror.com/
+```
+
+安装pnpm
+
+```
+npm install -g pnpm
 ```
