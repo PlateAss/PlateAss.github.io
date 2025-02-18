@@ -30,6 +30,12 @@ apt list|grep python3.1
 sudo apt install python3.11
 ```
 
+设置符号连接
+
+sudo rm /usr/bin/python3
+
+sudo ln -s /usr/bin/python3.11 python3
+
 设置镜像源
 
 ```
